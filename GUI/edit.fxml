@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="345.0" prefWidth="454.0" xmlns="http://javafx.com/javafx/10.0.2-internal"
+            fx:controller="GUI.Edit">
+   <children>
+      <GridPane alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="258.0" prefWidth="382.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="98.00003662109376" minWidth="10.0"
+                               prefWidth="23.800024414062506"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.5999755859375" minWidth="10.0"
+                               prefWidth="91.7999755859375"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="265.9999755859375" minWidth="10.0"
+                               prefWidth="265.9999755859375"/>
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="62.800018310546875" minHeight="10.0" prefHeight="48.80000228881836"
+                            vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="62.800018310546875" minHeight="10.0" prefHeight="21.19999389648438"
+                            vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="62.800018310546875" minHeight="10.0" prefHeight="17.00000610351563"
+                            vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="135.4000183105469" minHeight="10.0" prefHeight="121.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="62.60001220703124" minHeight="10.0" prefHeight="23.400000000000006"
+                            vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="64.99999084472657" minHeight="10.0" prefHeight="36.400006103515636"
+                            vgrow="SOMETIMES"/>
+         </rowConstraints>
+         <children>
+            <Label text="Name:" GridPane.columnIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0"/>
+               </font>
+            </Label>
+            <Label text="Address(es):" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0"/>
+               </font>
+            </Label>
+            <TextField fx:id="nameField" GridPane.columnIndex="2"/>
+            <TextArea fx:id="addressesField" prefHeight="200.0" prefWidth="200.0" wrapText="true"
+                      GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+               <children>
+                  <Label text="Enter addresses separated by a comma."/>
+                  <Label fx:id="invalidAddresses" textFill="RED"/>
+               </children>
+            </VBox>
+            <Label fx:id="invalidName" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+         </children>
+      </GridPane>
+      <Button fx:id="saveBtn" layoutX="258.0" layoutY="285.0" mnemonicParsing="false" onAction="#save" text="Save"/>
+      <Button fx:id="cancelBtn" layoutX="344.0" layoutY="285.0" mnemonicParsing="false" onAction="#cancel"
+              text="Cancel"/>
+   </children>
+</AnchorPane>

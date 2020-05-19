@@ -1,0 +1,7 @@
+.anchor {
+    -fx-background-image:url("background.jpg");
+}
+
+.linear-grad{
+   -fx-background-color: linear-gradient(from 25px 25px to 100px 100px, #dc143c, #32cd32);
+}

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="622.0" prefWidth="614.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Signup">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="4.0" layoutY="119.0" prefHeight="47.0" prefWidth="600.0">
+         <children>
+            <Label prefHeight="45.0" prefWidth="108.0" text="Sign-up">
+               <font>
+                  <Font name="Forte" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <GridPane layoutX="102.0" layoutY="166.0" prefHeight="383.0" prefWidth="400.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.4000244140625" minWidth="10.0"
+                               prefWidth="111.80003662109375"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="325.5999755859375" minWidth="10.0"
+                               prefWidth="287.7999633789062"/>
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="-Infinity" minHeight="1.1999877929687557" prefHeight="45.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="-Infinity" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="15.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="60.60003662109375" minHeight="10.0" prefHeight="60.60003662109375"
+                            vgrow="SOMETIMES"/>
+            <RowConstraints maxHeight="15.0" minHeight="10.0" prefHeight="17.39996337890625" vgrow="SOMETIMES"/>
+         </rowConstraints>
+         <children>
+            <Label text="Name:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Email address:" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Password:" GridPane.rowIndex="4">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Confirm passwrod:" GridPane.rowIndex="6">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Gender:" GridPane.rowIndex="8">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label text="Birthday:" GridPane.rowIndex="9">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nameField" onKeyTyped="#checkName" GridPane.columnIndex="1" />
+            <TextField fx:id="addressField" onKeyTyped="#checkAddress" promptText="example@trio.com" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <PasswordField fx:id="passwordField" onKeyTyped="#checkPassword" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <PasswordField fx:id="confirmField" onKeyTyped="#checkPassword" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Male">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="t1" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="Female" toggleGroup="$t1" />
+                  <RadioButton mnemonicParsing="false" selected="true" text="Other" toggleGroup="$t1" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+               <children>
+                  <DatePicker fx:id="datePicker" editable="false" onAction="#checkBd" prefHeight="26.0"
+                              prefWidth="200.0"/>
+               </children>
+            </HBox>
+            <Label fx:id="invalidNameLabel" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="invalidConfirmLabel" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <Label fx:id="invalidAddressLabel" />
+                  <Label fx:id="invalidAddressLabel2" textFill="RED">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                  <Label fx:id="invalidAddressLabel3" textFill="RED">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <Label fx:id="invalidPasswordLabel" textFill="RED" />
+                  <Label fx:id="invalidPasswordLabel2" textFill="RED">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+               	  </Label>
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1"
+                  GridPane.rowIndex="10">
+               <children>
+                  <Label fx:id="invalidBd" textFill="RED"/>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+      <VBox alignment="TOP_CENTER" layoutX="7.0" layoutY="574.0" prefHeight="106.0" prefWidth="600.0" spacing="10.0">
+         <children>
+            <Label fx:id="invalidLabel" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="signupBtn" mnemonicParsing="false" onAction="#callSignup" text="Sign-up"/>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+               <children>
+                  <Label text="Already have an account?">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink onAction="#loadSignin" text="Sign-in">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Hyperlink>
+                  <Label text="instead">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+               </children></HBox>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER_LEFT" layoutX="14.0" prefHeight="119.0" prefWidth="600.0">
+         <children>
+            <Label prefHeight="62.0" prefWidth="291.0" text="    TrioMail">
+               <font>
+                  <Font name="Centaur" size="50.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

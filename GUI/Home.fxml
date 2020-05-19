@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" styleClass="anchor" stylesheets="@application.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="1168.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HomeController">
+   <children>
+      <BorderPane layoutX="9.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="685.0" prefWidth="1155.0" stylesheets="@application.css">
+         <right>
+            <Pane prefHeight="634.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="composeBtn" layoutX="59.0" layoutY="442.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#composeBtnClicked" prefHeight="30.0" prefWidth="85.0" text="Compose" />
+                  <Button fx:id="contactsBtn" layoutX="59.0" layoutY="480.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#contactsBtnClicked" prefHeight="30.0" prefWidth="85.0" text="Contacts" />
+                  <Button fx:id="foldersBtn" layoutX="59.0" layoutY="516.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#foldersBtnClicked" prefHeight="30.0" prefWidth="85.0" text="Folders" />
+                  <Pane layoutX="1.0" layoutY="72.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Sort by:" />
+                        <ChoiceBox fx:id="sortChoiceBox" layoutX="14.0" layoutY="44.0" prefWidth="150.0" />
+                        <Button fx:id="priorityBtn" layoutX="56.0" layoutY="112.0" mnemonicParsing="false" onMouseClicked="#priorityBtnClicked" text="By Priority" />
+                        <CheckBox fx:id="reverseChkBox" layoutX="54.0" layoutY="79.0" mnemonicParsing="false" text="Reverse" />
+                        <Pane layoutY="153.0" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="14.0" text="Search by:" />
+                              <ChoiceBox fx:id="searchChoiceBox" layoutX="10.0" layoutY="38.0" prefWidth="150.0" />
+                              <TextField fx:id="searchTxt" layoutX="11.0" layoutY="86.0" prefHeight="29.0" prefWidth="179.0" promptText="What are you looking for?">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="applyBtn" layoutX="71.0" layoutY="171.0" mnemonicParsing="false" onMouseClicked="#applyBtnClicked" text="Apply" />
+                              <DatePicker fx:id="datePck" disable="true" layoutX="3.0" layoutY="131.0" prefHeight="31.0" prefWidth="195.0" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <Button fx:id="refreshBtn" layoutX="65.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#refresh" text="Refresh" />
+               </children>
+            </Pane>
+         </right>
+         <bottom>
+            <Pane prefHeight="47.0" prefWidth="928.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pagination fx:id="pgr" layoutX="452.0" layoutY="5.0" onMouseClicked="#pageSelection" onMousePressed="#pageSelection" prefHeight="59.0" prefWidth="200.0" />
+               </children>
+            </Pane>
+         </bottom>
+         <left>
+            <Accordion prefHeight="576.0" prefWidth="157.0" BorderPane.alignment="CENTER">
+               <panes>
+                  <TitledPane fx:id="inboxTPane" animated="false" onMouseClicked="#loadInbox" text="Inbox">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" collapsible="false" expanded="false" onMouseClicked="#loadSent" text="Sent">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" collapsible="false" expanded="false" onMouseClicked="#loadTrash" text="Trash">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                     </content>
+                  </TitledPane>
+                  <TitledPane animated="false" collapsible="false" expanded="false" onMouseClicked="#loadDrafts" prefHeight="200.0" prefWidth="200.0" text="Draft" />
+               </panes>
+            </Accordion>
+         </left>
+         <top>
+            <Pane prefHeight="62.0" prefWidth="1132.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="bannerLbl" layoutX="41.0" layoutY="21.0" text="ccc">
+                     <font>
+                        <Font name="Yu Gothic Regular" size="15.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink fx:id="signout" layoutX="1017.0" layoutY="17.0" onAction="#signout" text="sign-out">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <SplitPane dividerPositions="0.9323671497584541" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TableView fx:id="mailsTbl" prefHeight="534.0" prefWidth="820.0" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <Button fx:id="delBtn" layoutX="14.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#delBtnClicked" text="Delete" />
+                        <Button fx:id="moveBtn" layoutX="92.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#moveBtnClicked" text="Move" />
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
